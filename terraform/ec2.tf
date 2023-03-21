@@ -40,16 +40,41 @@ resource "aws_instance" "k8s" {
   iam_instance_profile = "LabInstanceProfile"
 
   tags = {
-    project = "clo835"
+    project = "clo835-Assignment2"
   }
 
-  key_name                = "week5"
+  key_name                = "mocktest"
   monitoring              = true
   disable_api_termination = false
   ebs_optimized           = true
 }
 
 resource "aws_key_pair" "k8s" {
-  key_name   = "week5"
-  public_key = file("${path.module}/week5.pub")
+  key_name   = "mocktest"
+  public_key = file("${path.module}/mocktest.pub")
+}
+
+
+
+
+
+
+resource "aws_ecr_repository" "webapp" {
+  name                 = "webapp"
+  image_tag_mutability = "MUTABLE"
+
+  image_scanning_configuration {
+    scan_on_push = true
+  }
+}
+
+
+
+resource "aws_ecr_repository" "mysql_db" {
+  name                 = "mysql_db"
+  image_tag_mutability = "MUTABLE"
+
+  image_scanning_configuration {
+    scan_on_push = true
+  }
 }
