@@ -34,7 +34,7 @@ jobs:
         IMAGE_TAG: v0.1
       run: |
         # Docker build
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY_HARSH_MYSQL_DB:$IMAGE_TAG -f Dockerfile_mysql .
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY_HARSH_MYSQL_DB:$IMAGE_TAG -f Dockerfile_mock .
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY_HARSH_WEBAPP:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY_HARSH_MYSQL_DB:$IMAGE_TAG
         docker push $ECR_REGISTRY/$ECR_REPOSITORY_HARSH_WEBAPP:$IMAGE_TAG
