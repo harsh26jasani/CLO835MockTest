@@ -8,7 +8,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      appname: node-app-replicaset
+      appname: node-app-deployment
       component: frontend
   template:
     metadata:
@@ -20,4 +20,4 @@ spec:
       - name: node-app
         image: myappimage:v1.0
         ports:
-        - containerPort: 5000
+        - containerPort: 8081
